@@ -13,4 +13,5 @@
 
     <color  name="forgotPassword">#50C2C9</color>
     <color name="signUp">#134B4f</color>
+    <color name="register_btn">#13CF1F</color>
 </resources>
