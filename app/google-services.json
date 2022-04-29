@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "509852369571",
+    "project_id": "connectme-f1729",
+    "storage_bucket": "connectme-f1729.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:509852369571:android:795df95392474a850f3516",
+        "android_client_info": {
+          "package_name": "com.example.connectme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "509852369571-ckdeer9kfpj89dsqsg6d6f3rtjq8edo2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWqAYFN4ZF5n_4ojC2RVaaaoFnWF4war4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "509852369571-ckdeer9kfpj89dsqsg6d6f3rtjq8edo2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
