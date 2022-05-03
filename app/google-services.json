@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "509852369571",
+    "firebase_url": "https://connectme-f1729-default-rtdb.firebaseio.com",
     "project_id": "connectme-f1729",
     "storage_bucket": "connectme-f1729.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "509852369571-s0k14f7nmctgohutpqo411c80brfn2c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.connectme",
+            "certificate_hash": "ea8f3d3265e1d6b28f30987183a5a9086b405155"
+          }
+        },
         {
           "client_id": "509852369571-ckdeer9kfpj89dsqsg6d6f3rtjq8edo2.apps.googleusercontent.com",
           "client_type": 3

@@ -13,4 +13,6 @@
     <string name="address">Address</string>
     <string name="phone_no">Phone No.</string>
     <string name="register">REGISTER</string>
+    <string name="your_web_client_id" translatable="false">509852369571-ckdeer9kfpj89dsqsg6d6f3rtjq8edo2.apps.googleusercontent.com</string>
+
 </resources>

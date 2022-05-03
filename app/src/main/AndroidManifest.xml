@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectMe">
         <activity
+            android:name=".users.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".users.Registration"
             android:exported="false" />
         <activity

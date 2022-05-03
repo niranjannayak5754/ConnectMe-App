@@ -33,6 +33,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+
             android:id="@+id/etFirstName"
             android:layout_width="360dp"
             android:layout_height="50dp"
@@ -42,7 +43,9 @@
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/TextView" />
+            app:layout_constraintTop_toBottomOf="@id/TextView"
+            android:autofillHints="name"
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/etLastName"
@@ -51,10 +54,13 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/input"
             android:hint="@string/last_name"
-            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etFirstName" />
+            app:layout_constraintTop_toBottomOf="@id/etFirstName"
+            android:autofillHints="name"
+            android:inputType="textPersonName"
+            tools:ignore="RtlSymmetry" />
 
         <EditText
             android:id="@+id/etUsername"
@@ -63,10 +69,12 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/input"
             android:hint="@string/username"
+            android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etLastName" />
+            app:layout_constraintTop_toBottomOf="@id/etLastName"
+            android:autofillHints="username" />
 
         <EditText
             android:id="@+id/etPassword"
@@ -75,6 +83,8 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/input"
             android:hint="@string/password"
+            android:inputType="textPassword"
+            android:autofillHints="password"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +98,7 @@
             android:background="@drawable/input"
             android:hint="@string/phone_no"
             android:inputType="phone"
+            android:autofillHints="phone"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -101,6 +112,7 @@
             android:background="@drawable/input"
             android:hint="@string/address"
             android:paddingLeft="20dp"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etPhoneNum" />

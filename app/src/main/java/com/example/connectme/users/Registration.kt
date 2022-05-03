@@ -1,20 +1,24 @@
 package com.example.connectme.users
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.connectme.MainActivity
-import com.example.connectme.R
 import com.example.connectme.databinding.ActivityRegistrationBinding
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class Registration : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegistrationBinding
-    private lateinit var database: DatabaseReference
+
+    private val db = Firebase.firestore
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +27,10 @@ class Registration : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.progressBar.visibility = View.GONE
+        mAuth = FirebaseAuth.getInstance()
 
+//  Registering a new user to my app
         binding.btnRegister.setOnClickListener {
-
-            binding.progressBar.visibility = View.VISIBLE
 
             val firstname = binding.etFirstName.text.toString()
             val lastname = binding.etLastName.text.toString()
@@ -35,31 +39,64 @@ class Registration : AppCompatActivity() {
             val phone = binding.etPhoneNum.text.toString()
             val address = binding.etAddress.text.toString()
 
-            database = FirebaseDatabase.getInstance().getReference("Users")
-            val user = User(firstname, lastname, phone, address, password, username)
-            database.child(username).setValue(user).addOnSuccessListener {
+            if (firstname.isNotEmpty() && lastname.isNotEmpty() && password.isNotEmpty() && username.isNotEmpty() && phone.isNotEmpty() && address.isNotEmpty()) {
 
-                binding.etFirstName.text.clear()
-                binding.etLastName.text.clear()
-                binding.etUsername.text.clear()
-                binding.etPassword.text.clear()
-                binding.etPhoneNum.text.clear()
-                binding.etAddress.text.clear()
+                if (password.length < 6) {
+                    Toast.makeText(this, "password must be 6 digits long", Toast.LENGTH_SHORT)
+                        .show()
+                    binding.etPassword.requestFocus()
 
-                binding.progressBar.visibility = View.GONE
+                } else {
+                    binding.progressBar.visibility = View.VISIBLE
+                    mAuth.createUserWithEmailAndPassword(username, password)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val user = User(
+                                    firstname,
+                                    lastname,
+                                    phone,
+                                    address,
+                                    password,
+                                    username
+                                )
+                                registerUserInFirestore(user)
+                            } else {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(
+                                    this@Registration,
+                                    "Failed: $it",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
+                }
 
-                Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
-
-            }.addOnFailureListener {
-
-                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
-                binding.progressBar.visibility = View.GONE
+            } else {
+                Toast.makeText(this, "Fill in the empty fields", Toast.LENGTH_SHORT).show()
             }
-
         }
+    }
 
+    private fun registerUserInFirestore(user: User) {
+        db.collection("Users").add(user).addOnSuccessListener {
+
+            binding.etFirstName.text.clear()
+            binding.etLastName.text.clear()
+            binding.etUsername.text.clear()
+            binding.etPassword.text.clear()
+            binding.etPhoneNum.text.clear()
+            binding.etAddress.text.clear()
+
+            binding.progressBar.visibility = View.GONE
+
+            Toast.makeText(this@Registration, "Account created", Toast.LENGTH_SHORT).show()
+//            asking user for login
+            val intent = Intent(this@Registration, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }.addOnFailureListener {
+            Toast.makeText(this@Registration, "Failed: $it", Toast.LENGTH_SHORT).show()
+            binding.progressBar.visibility = View.GONE
+        }
     }
 }
