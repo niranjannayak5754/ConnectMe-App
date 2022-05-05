@@ -1,10 +1,9 @@
 package com.example.connectme.users
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.connectme.MainActivity
-import com.example.connectme.R
 import com.example.connectme.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
