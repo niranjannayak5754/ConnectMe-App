@@ -3,13 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.163" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_baseline_add_shopping_cart_24.xml" value="0.163" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1405" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_baseline_remove_24.xml" value="0.1405" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.163" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/ic_launcher_background.xml" value="0.191" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/input.xml" value="0.191" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/login_btn.xml" value="0.191" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/drawable/register_btn.xml" value="0.191" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_add_pet.xml" value="0.176" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_buy_pet.xml" value="0.2" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_image_cropper.xml" value="0.22604166666666667" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_profile.xml" value="0.22760416666666666" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_pet_collection.xml" value="0.24166666666666667" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_pet_details.xml" value="0.24166666666666667" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_profile.xml" value="0.264" />
         <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/activity_registration.xml" value="0.16799999999999998" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/each_cart_item.xml" value="0.2" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/each_pet_item.xml" value="0.24166666666666667" />
+        <entry key="..\:/My apps/ConnectMe/app/src/main/res/layout/each_pet_menu_item.xml" value="0.24166666666666667" />
       </map>
     </option>
   </component>

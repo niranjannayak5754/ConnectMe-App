@@ -13,6 +13,15 @@
     <string name="address">Address</string>
     <string name="phone_no">Phone No.</string>
     <string name="register">REGISTER</string>
-    <string name="your_web_client_id" translatable="false">509852369571-ckdeer9kfpj89dsqsg6d6f3rtjq8edo2.apps.googleusercontent.com</string>
-
+    <string name="sign_out">Sign Out</string>
+    <string name="add_your_pet">ADD YOUR PET</string>
+    <string name="enter_pet_name">Enter Pet Name</string>
+    <string name="enter_breed_name">Enter Breed Name</string>
+    <string name="enter_price">Enter Price</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="description">Description</string>
+    <string name="add_pet">Add Pet</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="email">Email</string>
 </resources>

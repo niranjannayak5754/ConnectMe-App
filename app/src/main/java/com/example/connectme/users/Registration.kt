@@ -1,15 +1,16 @@
 package com.example.connectme.users
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.connectme.MainActivity
 import com.example.connectme.databinding.ActivityRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class Registration : AppCompatActivity() {
@@ -78,25 +79,23 @@ class Registration : AppCompatActivity() {
     }
 
     private fun registerUserInFirestore(user: User) {
-        db.collection("Users").add(user).addOnSuccessListener {
+        GlobalScope.launch (Dispatchers.IO){
+            db.collection("Users").document(mAuth.uid.toString()).set(user).addOnSuccessListener {
+                binding.etFirstName.text.clear()
+                binding.etLastName.text.clear()
+                binding.etUsername.text.clear()
+                binding.etPassword.text.clear()
+                binding.etPhoneNum.text.clear()
+                binding.etAddress.text.clear()
 
-            binding.etFirstName.text.clear()
-            binding.etLastName.text.clear()
-            binding.etUsername.text.clear()
-            binding.etPassword.text.clear()
-            binding.etPhoneNum.text.clear()
-            binding.etAddress.text.clear()
+                binding.progressBar.visibility = View.GONE
 
-            binding.progressBar.visibility = View.GONE
-
-            Toast.makeText(this@Registration, "Account created", Toast.LENGTH_SHORT).show()
-//            asking user for login
-            val intent = Intent(this@Registration, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }.addOnFailureListener {
-            Toast.makeText(this@Registration, "Failed: $it", Toast.LENGTH_SHORT).show()
-            binding.progressBar.visibility = View.GONE
+                Toast.makeText(this@Registration, "Account created", Toast.LENGTH_SHORT).show()
+                finish()
+            }.addOnFailureListener {
+                Toast.makeText(this@Registration, "Failed: $it", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility = View.GONE
+            }
         }
     }
 }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.connectme">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectMe">
         <activity
-            android:name=".users.ProfileActivity"
+            android:name=".buy_pet.BuyPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".crop_image.ImageCrop"
+            android:exported="false" />
+        <activity
+            android:name=".pets.PetDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pets.AddPetActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pets.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pets.PetCollectionActivity"
             android:exported="false" />
         <activity
             android:name=".users.Registration"
@@ -24,10 +42,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_DlNkrEkO8De91s" />
+        <meta-data
+            android:name="com.google.gns.wallet.api.enabled"
+            android:value="true" />
     </application>
 
 </manifest>
