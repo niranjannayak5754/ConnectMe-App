@@ -24,4 +24,5 @@
     <string name="add_to_cart">Add To Cart</string>
     <string name="buy_now">Buy Now</string>
     <string name="email">Email</string>
+    <string name="name">Name</string>
 </resources>

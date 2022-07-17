@@ -9,6 +9,7 @@ import com.example.connectme.databinding.ActivityMainBinding
 import com.example.connectme.pets.PetCollectionActivity
 import com.example.connectme.pets.ProfileActivity
 import com.example.connectme.users.Registration
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity() {
                 else
                     binding.etPassword.requestFocus()
             }
+        }
+
+        binding.btnGoogleSignIn.setOnClickListener{
+            Snackbar.make(it,"Feature Coming Soon",Snackbar.LENGTH_SHORT).show()
         }
     }
 

@@ -14,6 +14,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
 
 class PetCollectionActivity : AppCompatActivity(), PetDetailsItemClicked {
+
+       companion object{
+           const val DOCUMENT_ID = "2263262Niranjan"
+       }
         private lateinit var binding: ActivityPetCollectionBinding
         private  var mAuth = FirebaseAuth.getInstance()
         private lateinit var petsList: ArrayList<Pet>
@@ -28,14 +32,6 @@ class PetCollectionActivity : AppCompatActivity(), PetDetailsItemClicked {
 
         val category: String = intent.getStringExtra("category").toString()
 
-
-        binding.btnSignOut.setOnClickListener{
-            mAuth.signOut()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-
         binding.mainRecyclerView.layoutManager = GridLayoutManager(this,2)
         fetchData(category)
         mAdapter = PetDetailsAdapter(this@PetCollectionActivity)
@@ -45,8 +41,9 @@ class PetCollectionActivity : AppCompatActivity(), PetDetailsItemClicked {
     private fun fetchData(category: String) {
         petsList = ArrayList()
         db = FirebaseFirestore.getInstance()
-        db.collection("Pet").document(
-                mAuth.uid.toString()).collection(category)
+//        db.collection("Pet").document(
+//                mAuth.uid.toString()).collection(category)
+        db.collection("Pet").document(DOCUMENT_ID).collection(category)
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                     if (error != null) {
@@ -59,7 +56,7 @@ class PetCollectionActivity : AppCompatActivity(), PetDetailsItemClicked {
                             petsList.add(dc.document.toObject(Pet::class.java))
                         }
                     }
-                    mAdapter.updateNews(petsList)
+                    mAdapter.updatePets(petsList)
                 }
             })
     }

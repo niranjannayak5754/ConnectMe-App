@@ -32,9 +32,9 @@ class PetMenuAdapter( private val listener : PetsItemClicked) : RecyclerView.Ada
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateNews(updatedNews:ArrayList<CategoryData>){
+    fun updatePetsCategory(updatePetsCategory:ArrayList<CategoryData>){
         items.clear()
-        items.addAll(updatedNews)
+        items.addAll(updatePetsCategory)
 //        to notify that the data need to be updated to reRun getItemCount, onCreate and onBindView functions
         notifyDataSetChanged()
     }

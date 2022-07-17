@@ -32,9 +32,9 @@ class PetDetailsAdapter( private val listener : PetDetailsItemClicked) : Recycle
         return items.size
     }
     @SuppressLint("NotifyDataSetChanged")
-    fun updateNews(updatedNews:ArrayList<Pet>){
+    fun updatePets(updatedPets:ArrayList<Pet>){
         items.clear()
-        items.addAll(updatedNews)
+        items.addAll(updatedPets)
 //        to notify that the data need to be updated to reRun getItemCount, onCreate and onBindView functions
         notifyDataSetChanged()
     }
@@ -45,7 +45,6 @@ class PetDetailsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     val image: ImageView = itemView.findViewById(R.id.ivPetItem)
     val breedName : TextView = itemView.findViewById(R.id.tvPetBreedName)
     val price : TextView = itemView.findViewById(R.id.tvPetItemPrice)
-
 }
 interface PetDetailsItemClicked{
     fun onItemClicked(item: Pet)

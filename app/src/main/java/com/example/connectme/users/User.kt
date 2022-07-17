@@ -1,10 +1,13 @@
 package com.example.connectme.users
 
+import android.net.Uri
+
 data class User(
-    val firstname: String? = null,
-    val lastname: String? = null,
-    val phone: String? = null,
-    val address: String? = null,
-    val password: String? = null,
-    val username: String? = null
+    var firstname: String? = null,
+    var lastname: String? = null,
+    var phone: String? = null,
+    var address: String? = null,
+    var password: String? = null,
+    var username: String? = null,
+    var profileImageUrl: String? = null
     )

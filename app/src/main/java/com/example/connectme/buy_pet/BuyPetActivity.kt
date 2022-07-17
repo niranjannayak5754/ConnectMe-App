@@ -15,7 +15,5 @@ class BuyPetActivity : AppCompatActivity() {
         binding = ActivityBuyPetBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
     }
 }

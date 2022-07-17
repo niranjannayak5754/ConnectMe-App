@@ -1,5 +1,6 @@
 package com.example.connectme.pets
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -7,10 +8,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.example.connectme.crop_image.ImageCrop
 import com.example.connectme.databinding.ActivityAddPetBinding
 import com.example.connectme.utils.model.CategoryData
 import com.example.connectme.utils.model.Pet
+import com.github.drjacky.imagepicker.ImagePicker
+import com.github.drjacky.imagepicker.constant.ImageProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -19,11 +21,15 @@ import java.util.*
 
 class AddPetActivity : AppCompatActivity() {
 
+    companion object{
+        const val DOCUMENT_ID = "2263262Niranjan"
+    }
+
     private lateinit var binding: ActivityAddPetBinding
     private val db = Firebase.firestore
     private val storage = FirebaseStorage.getInstance()
-    private val mAuth = FirebaseAuth.getInstance()
     private var uri: Uri? = null
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +37,18 @@ class AddPetActivity : AppCompatActivity() {
         binding = ActivityAddPetBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mAuth = FirebaseAuth.getInstance()
+
         binding.progressBar.visibility = View.GONE
 
         binding.ivAddPet.setOnClickListener {
-            resultLauncher.launch("image/*")
+            ImagePicker.with(this)
+                .provider(ImageProvider.BOTH)
+                .crop()
+                .maxResultSize(720,720)
+                .createIntentFromDialog {
+                    resultLauncher.launch(it)
+                }
         }
 
         binding.btnAddPet.setOnClickListener {
@@ -46,7 +60,8 @@ class AddPetActivity : AppCompatActivity() {
             if (uri != null && petName.isNotEmpty() && breedName.isNotEmpty() && price.isNotEmpty() && weight.isNotEmpty() && description.isNotEmpty()) {
                 binding.btnAddPet.visibility = View.GONE
                 binding.progressBar.visibility = View.VISIBLE
-                val imageReference = storage.reference.child(System.currentTimeMillis().toString() + ".any")
+                // uploading the pet image in the firebase storage and downloading the url of that file
+                val imageReference = storage.reference.child("Pets/${mAuth.uid}/"+System.currentTimeMillis().toString() + ".jpeg")
                 imageReference.putFile(uri!!).addOnSuccessListener {
                     imageReference.downloadUrl.addOnSuccessListener {
                         val pet = Pet(petName, breedName,it.toString(), price, weight, description)
@@ -82,7 +97,7 @@ class AddPetActivity : AppCompatActivity() {
     }
 
     private fun addPet(pet: Pet) {
-        db.collection("Pet").document(mAuth.uid.toString()).collection(pet.petName.toString())
+        db.collection("Pet").document(DOCUMENT_ID).collection(pet.petName.toString())
             .document(UUID.randomUUID().toString())
             .set(pet).addOnSuccessListener {
                 binding.progressBar.visibility = View.GONE
@@ -94,24 +109,12 @@ class AddPetActivity : AppCompatActivity() {
             }
     }
 
-    private var resultLauncher = registerForActivityResult(ActivityResultContracts.GetContent()
-    ) {
-        if (it != null) {
-//            binding.ivAddPet.setImageURI(it)
-//            uri = it
-            val intent = Intent(this, ImageCrop::class.java)
-            intent.putExtra("KEY",it.toString())
-            startActivityForResult(intent,101)
-        }
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode==-1 && requestCode==101){
-            val result = data!!.getStringExtra("Result").toString()
-            uri =Uri.parse(result)
+    private var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+        if(it.resultCode == Activity.RESULT_OK)
+        {
+            uri = it.data?.data!!
             binding.ivAddPet.setImageURI(uri)
+
         }
     }
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".buy_pet.BuyPetActivity">
 
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

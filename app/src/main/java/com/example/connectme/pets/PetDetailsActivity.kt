@@ -53,7 +53,6 @@ class PetDetailsActivity : AppCompatActivity(), PaymentResultListener {
 
     private fun makePayment(amount:Int) {
         val co = Checkout()
-
         try {
             val options = JSONObject()
             options.put("name","Connect Me")
