@@ -10,18 +10,103 @@
     <LinearLayout
         android:id="@+id/profileLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
+        android:layout_height="350dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/register_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout_profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/banner"
-            android:scaleType="centerCrop"/>
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/profileToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/profileUsername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:maxLines="1"
+                        tools:text="Username"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                    <ImageView
+                        android:id="@+id/profileLogout"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/logout_image" />
+                </RelativeLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePicture"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/name"
+            android:layout_marginHorizontal="24dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/profilePhone"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/phone_no"
+            android:layout_marginHorizontal="24dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/profileAddress"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/address"
+            android:layout_marginHorizontal="24dp"
+            android:textSize="16sp"
+            android:maxLines="2"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/editProfileBtn"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:padding="0dp"
+            android:backgroundTint="@color/light_grey"
+            android:textColor="@color/wallet_holo_blue_light"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textAllCaps="false"
+            />
     </LinearLayout>
 
 
