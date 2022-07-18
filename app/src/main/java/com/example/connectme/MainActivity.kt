@@ -65,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnGoogleSignIn.setOnClickListener{
             Snackbar.make(it,"Feature Coming Soon",Snackbar.LENGTH_SHORT).show()
         }
+
+        binding.tvForgotPassword.setOnClickListener{
+            Snackbar.make(it,"Feature Coming Soon",Snackbar.LENGTH_SHORT).show()
+        }
     }
 
     override fun onStart() {

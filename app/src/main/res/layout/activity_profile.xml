@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_grey"
+    android:background="@color/wallet_holo_blue_light"
     tools:context=".pets.ProfileActivity">
 
     <LinearLayout
         android:id="@+id/profileLayout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_height="350dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_layout_profile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background = "@color/white"
+            android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/profileToolbar"
                 android:layout_width="match_parent"
+                android:background="@color/light_grey"
                 android:layout_height="50dp"
-                android:layout_margin="4dp"
-                android:background="@color/white">
+                android:layout_margin="4dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -39,86 +39,107 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:maxLines="1"
-                        tools:text="Username"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        tools:ignore="HardcodedText" />
+                        tools:ignore="HardcodedText"
+                        tools:text="Username" />
 
                     <ImageView
                         android:id="@+id/profileLogout"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginEnd="24dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginEnd="24dp"
                         android:src="@drawable/logout_image" />
                 </RelativeLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profilePicture"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/profile" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/banner"/>
 
-        <TextView
-            android:layout_marginTop="16dp"
-            android:id="@+id/profileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/name"
-            android:layout_marginHorizontal="24dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/profilePhone"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/phone_no"
-            android:layout_marginHorizontal="24dp"
-            android:textSize="16sp"
-            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/profileAddress"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/address"
-            android:layout_marginHorizontal="24dp"
-            android:textSize="16sp"
-            android:maxLines="2"
-            android:textColor="@color/black"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="24dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/profile" />
 
-        <Button
-            android:id="@+id/editProfileBtn"
-            android:layout_width="wrap_content"
-            android:layout_marginHorizontal="24dp"
-            android:padding="0dp"
-            android:backgroundTint="@color/light_grey"
-            android:textColor="@color/wallet_holo_blue_light"
-            android:layout_height="wrap_content"
-            android:text="Edit Profile"
-            android:textAllCaps="false"
-            />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/profilePhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="@string/phone_no" />
+
+                <TextView
+                    android:id="@+id/profileAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    tools:text="@string/address" />
+
+                <Button
+                    android:id="@+id/editProfileBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:backgroundTint="@color/light_grey"
+                    android:padding="0dp"
+                    android:text="Edit Profile"
+                    android:textAllCaps="false"
+                    android:textColor="@color/wallet_holo_blue_light" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/petItemRecyclerView"
+        android:background="@color/light_grey"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/fabAddPet"
+        app:layout_constraintTop_toBottomOf="@id/profileLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fabAddPet"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileLayout" />
+        tools:itemCount="1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddPet"
@@ -127,9 +148,9 @@
         android:src="@drawable/ic_baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.95" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

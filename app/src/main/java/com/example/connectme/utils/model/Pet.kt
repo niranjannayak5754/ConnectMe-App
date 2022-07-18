@@ -4,14 +4,16 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Pet(
-    val petName: String?=null,
-    val breedName: String?=null,
-    val imageUrl: String?=null,
-    val price: String?=null,
-    val weight: String?=null,
-    val description: String?=null
+    var petId: String? =null,
+    var petName: String?=null,
+    var breedName: String?=null,
+    var imageUrl: String?=null,
+    var price: String?=null,
+    var weight: String?=null,
+    var description: String?=null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -22,6 +24,7 @@ data class Pet(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(petId)
         parcel.writeString(petName)
         parcel.writeString(breedName)
         parcel.writeString(imageUrl)

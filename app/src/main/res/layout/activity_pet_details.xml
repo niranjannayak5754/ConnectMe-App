@@ -59,12 +59,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        tools:text="50$"
+        tools:text="Rs. 50"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/tvPetBreedNameDetail"
         app:layout_constraintTop_toTopOf="@+id/tvPetBreedNameDetail" />
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Qty"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvPetPriceDetail"
+        app:layout_constraintTop_toTopOf="@+id/tvPetBreedNameDetail" />
+
+    <Spinner
+        android:id="@+id/quantitySpinner"
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/quantity_string_array"
+        app:layout_constraintStart_toEndOf="@+id/tvQuantity"
+        app:layout_constraintTop_toTopOf="@+id/tvQuantity"/>
+
 
     <TextView
         android:id="@+id/tvPetWeightDetail"

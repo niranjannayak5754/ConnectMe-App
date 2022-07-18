@@ -24,7 +24,7 @@ class PetDetailsAdapter( private val listener : PetDetailsItemClicked) : Recycle
         val currentItem = items[position]
         currentItem.petName.also { holder.petName.text=it }
         currentItem.breedName.also { holder.breedName.text=it }
-        currentItem.price.also { holder.price.text= "$it$" }
+        currentItem.price.also { holder.price.text= "Rs. $it" }
         Glide.with(holder.itemView.context).load(currentItem.imageUrl).into(holder.image)
     }
 

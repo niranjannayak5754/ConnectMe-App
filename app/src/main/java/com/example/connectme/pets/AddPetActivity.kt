@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -64,7 +65,7 @@ class AddPetActivity : AppCompatActivity() {
                 val imageReference = storage.reference.child("Pets/${mAuth.uid}/"+System.currentTimeMillis().toString() + ".jpeg")
                 imageReference.putFile(uri!!).addOnSuccessListener {
                     imageReference.downloadUrl.addOnSuccessListener {
-                        val pet = Pet(petName, breedName,it.toString(), price, weight, description)
+                        val pet = Pet("xxx",petName, breedName,it.toString(), price, weight, description)
                         val data = CategoryData(petName,it.toString())
                         addCategory(data)
                         addPet(pet)

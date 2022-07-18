@@ -8,6 +8,11 @@
     android:layout_marginTop="12dp"
     app:cardElevation="8dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,7 +25,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:background="@drawable/login_draw" />
+            android:background="@drawable/login_draw" />
 
         <TextView
             android:id="@+id/tvEachCartItemName"
@@ -28,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
-            android:text="TextView"
+            android:text="Dog"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ivEachCartItem"
@@ -39,22 +44,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="TextView"
+            android:text="Bull Dog"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/ivEachCartItem"
             app:layout_constraintTop_toBottomOf="@+id/tvEachCartItemName" />
 
         <TextView
-            android:id="@+id/tvEachCartItemPrice"
+            android:id="@+id/eachCartItemQuantityTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
-            android:text="TextView"
-            android:textColor="@color/black"
+            android:text="Qty"
+            android:backgroundTint="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/ivEachCartItem"
             app:layout_constraintTop_toBottomOf="@+id/tvEachCartItemBreedName" />
+
+        <TextView
+            android:id="@+id/quantitySpinner"
+            android:layout_marginHorizontal="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            app:layout_constraintStart_toEndOf="@+id/eachCartItemQuantityTV"
+            app:layout_constraintTop_toTopOf="@id/eachCartItemQuantityTV"
+            app:layout_constraintBottom_toBottomOf="@id/eachCartItemQuantityTV" />
 
         <ImageView
             android:id="@+id/eachCartItemDeleteBtn"
@@ -66,40 +81,34 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_delete_24" />
 
-        <ImageButton
-            android:id="@+id/eachCartItemAddQuantityBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="12dp"
-            android:background="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_baseline_add_24" />
-
         <TextView
-            android:id="@+id/eachCartItemQuantityTV"
+            android:id="@+id/eachCartItemPriceTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/eachCartItemMinusQuantityBtn"
-            app:layout_constraintEnd_toStartOf="@+id/eachCartItemAddQuantityBtn"
-            app:layout_constraintTop_toTopOf="@+id/eachCartItemMinusQuantityBtn"
-            tools:text="1" />
-
-        <ImageButton
-            android:id="@+id/eachCartItemMinusQuantityBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginBottom="12dp"
-            android:background="@color/black"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/eachCartItemQuantityTV"
-            app:srcCompat="@drawable/ic_baseline_remove_24" />
+            android:text="Rs. 5000" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:layout_marginVertical="4dp"
+            android:layout_gravity="right"
+            android:textAllCaps="false"
+            android:text="Buy Now"
+            android:layout_marginEnd="8dp"
+            android:textSize="16sp"
+            android:backgroundTint="@color/wallet_holo_blue_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/eachCartItemBuyBtn"/>
+
+    </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
