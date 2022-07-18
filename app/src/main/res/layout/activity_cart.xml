@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/wallet_holo_blue_light"
     android:layout_height="match_parent"
     tools:context=".CartActivity">
 
@@ -26,14 +27,13 @@
         app:layout_constraintBottom_toTopOf="@+id/buyNowBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/myCartToolbar"
-        app:layout_constraintWidth_percent="0.9" />
+        app:layout_constraintTop_toBottomOf="@id/myCartToolbar"/>
 
     <TextView
         android:id="@+id/totalPriceTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Price : Rs.500"
+        android:text="Total Price : Rs.0"
         android:gravity="center"
         android:background="@color/toolbar"
         android:textStyle="bold"
