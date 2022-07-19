@@ -8,10 +8,10 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/pet_shop"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/pet_shop"
         android:supportsRtl="true"
         android:theme="@style/Theme.ConnectMe">
         <activity
@@ -20,9 +20,7 @@
         <activity
             android:name=".buy_pet.BuyPetActivity"
             android:exported="false" />
-        <activity
-            android:name=".crop_image.ImageCrop"
-            android:exported="false" />
+
         <activity
             android:name=".pets.PetDetailsActivity"
             android:exported="false" />

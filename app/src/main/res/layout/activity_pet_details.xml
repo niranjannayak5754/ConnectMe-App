@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/ivPetItemDetail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             tools:srcCompat="@drawable/ic_add_image"/>
@@ -48,39 +48,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         tools:text="German Shepherd"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPetNameDetail" />
+        app:layout_constraintTop_toTopOf="@+id/tvPetPriceDetail"
+        app:layout_constraintBottom_toBottomOf="@id/tvPetPriceDetail"/>
     <TextView
         android:id="@+id/tvPetPriceDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         tools:text="Rs. 50"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/tvPetBreedNameDetail"
-        app:layout_constraintTop_toTopOf="@+id/tvPetBreedNameDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPetNameDetail" />
 
     <TextView
         android:id="@+id/tvQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:text="Qty"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tvPetPriceDetail"
-        app:layout_constraintTop_toTopOf="@+id/tvPetBreedNameDetail" />
+        app:layout_constraintTop_toTopOf="@+id/tvPetPriceDetail"
+        app:layout_constraintBottom_toBottomOf="@id/tvPetPriceDetail"/>
 
     <Spinner
         android:id="@+id/quantitySpinner"
-        android:layout_marginStart="8dp"
-        android:padding="4dp"
+        android:layout_marginStart="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/quantity_string_array"
